@@ -1,6 +1,7 @@
 ﻿from selenium import webdriver
 url = 'https://www.baidu.com/'
-driver = webdriver.Chrome()
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
+driver = webdriver.Chrome(executable_path=path)
 driver.get(url)
 # 隐性等待，最长等待时间为30秒
 driver.implicitly_wait(30)

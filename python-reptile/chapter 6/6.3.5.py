@@ -1,5 +1,5 @@
 ﻿import requests
-url = 'https://movie.douban.com/'
+url = 'https://blog.csdn.net/shi_jiaye/article/details/119175407'
 r = requests.get(url)
 # r.cookies是RequestsCookieJar对象
 print(r.cookies)

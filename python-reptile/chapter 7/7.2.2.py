@@ -1,6 +1,7 @@
 import time
 import requests_cache
 
+
 # 定义钩子函数
 def make_throttle_hook(delay=1.0):
     def hook(response, *args, **kwargs):
@@ -9,7 +10,9 @@ def make_throttle_hook(delay=1.0):
             print('delayTime')
             time.sleep(delay)
         return response
+
     return hook
+
 
 if __name__ == '__main__':
     requests_cache.install_cache()

@@ -2,7 +2,8 @@
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 url = 'https://passport.bilibili.com/login'
-driver = webdriver.Chrome()
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
+driver = webdriver.Chrome(executable_path=path)
 driver.get(url)
 # 双击登录
 element = driver.find_element_by_class_name('tit')

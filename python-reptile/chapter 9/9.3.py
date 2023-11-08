@@ -1,6 +1,7 @@
 ﻿from selenium import webdriver
 url = 'https://movie.douban.com/'
-driver = webdriver.Chrome()
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
+driver = webdriver.Chrome(executable_path=path)
 driver.get(url)
 # 定位
 driver.find_element_by_id('inp-query').send_keys('红海行动')

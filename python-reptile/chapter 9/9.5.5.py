@@ -1,7 +1,9 @@
 ﻿from selenium import webdriver
 import time
 # 启动浏览器
-driver = webdriver.Chrome()
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
+driver = webdriver.Chrome(executable_path=path)
+
 driver.get('https://www.youdao.com')
 time.sleep(5)
 # 添加Cookies

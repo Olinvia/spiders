@@ -2,7 +2,8 @@
 from selenium.webdriver.common.keys import Keys
 import time
 
-driver = webdriver.Chrome()
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
+driver = webdriver.Chrome(executable_path=path)
 driver.get("http://www.baidu.com")
 
 # 获取输入框标签对象

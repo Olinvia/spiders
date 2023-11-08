@@ -1,6 +1,7 @@
 ﻿import requests
-url = 'https://movie.douban.com/'
+url = 'https://blog.csdn.net/shi_jiaye/article/details/119175407'
 r = requests.get(url)
+mycookies = r.cookies
 # RequestsCookieJar转换字典
 cookies_dict = requests.utils.dict_from_cookiejar(mycookies)
 # 写入文件

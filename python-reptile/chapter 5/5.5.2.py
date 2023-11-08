@@ -10,6 +10,6 @@ handler = urllib.request.HTTPCookieProcessor(cookie)
 # 创建opener
 opener = urllib.request.build_opener(handler)
 # opener打开网页
-response = opener.open('https://movie.douban.com/')
+response = opener.open('https://blog.csdn.net/shi_jiaye/article/details/119175407')
 # 输出结果
 print(cookie)

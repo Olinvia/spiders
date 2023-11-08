@@ -4,7 +4,7 @@ from selenium import webdriver
 url = 'https://www.baidu.com/'
 # 将webdriver类实例化，将浏览器设定为Google Chrome
 # 参数executable_path是设置chromedriver的路径
-path = 'E:\\Python\\chromedriver.exe'
+path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
 browser = webdriver.Chrome(executable_path=path)
 # 打开浏览器并访问百度网址
 browser.get(url)
