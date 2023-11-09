@@ -6,8 +6,7 @@ def city_name():
                '(KHTML, like Gecko) Chrome/63.0.3218.0 Safari/537.36',
                'Referer':
                'https://kyfw.12306.cn/otn/login/init'}
-    url = 'https://kyfw.12306.cn/otn/resources/js/framework/
-station_name.js?station_version=1.9031'
+    url = 'https://kyfw.12306.cn/otn/resources/js/framework/station_name.js?station_version=1.9031'
     city_code = requests.get(url, headers=headers, verify=False)
     # 数据使用字符串操作处理
     city_code_list = city_code.text.split("|")

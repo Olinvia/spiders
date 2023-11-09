@@ -17,22 +17,21 @@ async def getData(url, headers):
 def savaData(result):
     for i in result:
         soup = BeautifulSoup(i, 'html.parser')
-        find_div = soup.find_all('div',class_='book-mid-info')
+        find_div = soup.find_all('div', class_='book-mid-info')
         for d in find_div:
-            name = d.find('h4').getText()
-            author = d.find('a',class_='name').getText()
-            update = d.find('p',class_='update').getText()
+            name = d.find('h2').getText()
+            author = d.find('a', class_='name').getText()
             # 写入CSV文件
-            csvFile = open('data.csv','a', newline='')
+            csvFile = open('data.csv', 'a', newline='')
             writer = csv.writer(csvFile)
-            writer.writerow([name,author,update])
+            writer.writerow([name, author])
             csvFile.close()
 
 # 定义运行函数run
 def run():
     for i in range(25):
         # 构建不同的URL地址并传入函数getData，最后由asyncio模块执行
-        task = asyncio.ensure_future(getData(url.format(i+1),headers))
+        task = asyncio.ensure_future(getData(url.format(i+1), headers))
         # 将所有请求加入到列表tasks
         tasks.append(task)
         # 等待所有请求执行完成，一并返回全部的响应内容

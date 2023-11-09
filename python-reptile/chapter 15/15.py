@@ -1,7 +1,7 @@
 # 连接数据库
 from sqlalchemy import create_engine
 engine = create_engine(
-    "mysql+pymysql://root:1990@localhost:3306/test?charset=utf8",
+    "mysql+pymysql://root:123456@localhost:3306/test?charset=utf8",
     echo=True)
 
 # 创建数据表方法一
@@ -21,6 +21,7 @@ class mytable(Base):
 
 Base.metadata.create_all(engine)
 
+"""
 # 创建数据表方法二
 from sqlalchemy import Column, MetaData, ForeignKey, Table
 from sqlalchemy.dialects.mysql import (INTEGER, CHAR)
@@ -36,8 +37,14 @@ myclass.create(bind=engine)
 #myclass.drop(bind=engine)
 #Base.metadata.drop_all(engine)
 
+"""
+
+from sqlalchemy.orm import sessionmaker
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+
 # 第10.5章节
-new_data = mytable(name='Li Lei',age=10,birth='2017-10-01',class_name='一年级一班')
+new_data = mytable(name='Li Lei', age=10, birth='2017-10-01', class_name='一年级一班')
 session.add(new_data)
 session.commit()
 session.close()
@@ -107,3 +114,4 @@ sql = 'select * from mytable '
 session.execute(sql)
 # 如果涉及更新，添加数据，需要session.commit()
 session.commit()
+
