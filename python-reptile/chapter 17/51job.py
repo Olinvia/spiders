@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import configparser
 import re, math, time
-from Insql import *
+# from Insql import *
 headers = {
     'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36',
     'Host':'search.51job.com',
@@ -19,19 +19,25 @@ def get_city_code():
     city_dict = {v : k for k, v in city_dict.items()}
     return city_dict
 
+
 # 获取职位的总页数，参数city_code是城市编号，keyword是职位关键字
 def get_pageNumber(city_code, keyword):
-    url = 'https://search.51job.com/list/'+str(city_code)+',000000,0000,00,9,99,'+str(keyword)+',2,1.html'
+    url = 'https://we.51job.com/pc/search?jobArea='+str(city_code)+'&keyword='+str(keyword)+'&searchType=2&sortType=0&metro='
+    print(url)
     r = requests.get(url, headers=headers)
-    soup = BeautifulSoup(r.content.decode('gbk'), 'html5lib')
-    find_page = soup.find('div', class_='rt').getText()
-    temp = re.findall(r"\d+\.?\d*", find_page)
-    if temp:
-        pageNumber = math.ceil(int(temp[0])/50)
-        return pageNumber
-    else:
-        return 0
+    time.sleep(2)
+    print(r.content.decode("unicode-escape"))
+    soup = BeautifulSoup(r.content, 'html.parser')
+    #find_page = soup.find('div', {'class':'post'}).getText()
+    #print(find_page)
+    #temp = re.findall(r"\d+\.?\d*", find_page)
+    #if temp:
+    #    pageNumber = math.ceil(int(temp[0])/50)
+    #    return pageNumber
+    #else:
+    #    return 0
 
+"""
 # 爬取职位详情页的数据，参数url是职位详情页的链接
 def get_info(url):
     temp_dict = {}
@@ -129,3 +135,5 @@ if __name__=='__main__':
             pageNumber = get_pageNumber(city_code, k)
             # 遍历总页数
             get_page(k, pageNumber)
+"""
+print(get_pageNumber("010000", "Java"))
