@@ -7,7 +7,7 @@
 
 class BaiduPipeline(object):
     def process_item(self, item, spider):
-        file = open('E:\\data.txt', 'a')
+        file = open('D:\\Use\\gitcode\\spiders\\python-reptile\\chapter 22\\data.txt', 'a')
         for i in item['TitleName']:
             value = i.replace("\n", "")
             file.write(value + "\r\n")

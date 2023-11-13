@@ -4,7 +4,7 @@
 # your spiders.
 
 from scrapy.selector import Selector
-from scrapy.spider import Spider
+from scrapy.spiders import Spider
 import scrapy
 class Baispider(Spider):
 	name = "Post_spider"

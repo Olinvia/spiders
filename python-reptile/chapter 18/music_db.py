@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 # 连接数据库
-engine=create_engine("mysql+pymysql://root:1234@localhost:3306/music_db?charset=utf8",echo=False)
+engine=create_engine("mysql+pymysql://root:123456@localhost:3306/music_db?charset=utf8",echo=False)
 # 创建会话对象，用于数据表的操作
 DBSession = sessionmaker(bind=engine)
 SQLsession = DBSession()

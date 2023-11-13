@@ -31,10 +31,11 @@ def download(guid, songmid, cookie_dict):
 # 使用Selenium获取Cookies
 def getCookies():
     chrome_options = Options()
+    path = 'D:\\Use\\gitcode\\spiders\\python-reptile\\chromedriver.exe'
     # 设置浏览器参数
     # --headless是不显示浏览器启动以及执行过程
     chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options, executable_path=path)
     # 访问两个URL，QQ网站才能生成Cookies
     driver.get('https://y.qq.com/')
     time.sleep(5)
